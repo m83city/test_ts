@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
-import {Select} from "antd"
-
+import React, { useEffect, useState } from 'react';
+import { Select } from "antd"
+import 'antd/dist/antd.css';
+import { listLanguages } from "./comsponent/listLanguage"
 
 function App() {
-const [language, setLanguage] =useState([
-  {label:"english",value: "en"},
-  {label:"ukraine",value: "uk"},
+let a, b,c
+let d:{}
 
-]);
-
-
+const arr:any = [ a, b, c , d:{1 ,2 , 3 , 4}]
 
   return (
     <div>
-        <Select options={language} placeholder={"some lang"}/>
+      <Select options={listLanguages} placeholder={"some lang"} />
 
     </div>
   );
