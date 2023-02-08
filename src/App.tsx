@@ -8,61 +8,72 @@ function App() {
   interface IArray {
     name: string,
     count: number
+    item: number
   }
+  const index = 'lg'
 
-  const [initArray, setInitArray] = useState<IArray[]>([
-    {
-      name: "first",
-      count: 1
+
+  const object = {
+    lg: [{
+      name: "lg-first",
+      count: 20,
+      item: 1
     },
     {
-      name: "second",
-      count: 1
-    }
-  ]);
-
-  const card1: IArray = {
-    name: "n",
-    count: 1
-  }
-  const card2: IArray = {
-    name: "Psz",
-    count: 1
-  }
-  const addArray = (element: IArray) => {
-
-    if (initArray.some(item => item.name === element.name)) {
-      console.log('item is already yet')
-      const index = initArray.findIndex((el: IArray) => el.name === element.name)
-      console.log(index)
-      console.log('slice')
-      console.log(initArray.filter(item => item.name !==element.name))
-
-      setInitArray([...initArray.filter(item => item.name !==element.name), { ...element, count: initArray[index].count + element.count }])
-
-    }
-    else {
-      console.log("add element")
-      setInitArray([...initArray, element])
-    }
-    console.log(initArray)
+      name: "lg-second",
+      count: 20,
+      item: 1
+    },],
+    md: [
+      {
+        name: "md-first",
+        count: 20,
+        item: 1
+      },
+      {
+        name: "md-second",
+        count: 20,
+        item: 1
+      }
+    ]
   }
 
+  const Array1 = [
+    { name: "lg-first", count: 421231, },
+    { name: "lg-second", count: 423694, },
+  ]
+  const changeStart = () => {
+
+/*     const newObject = {
+      ...object.lg.map(e => {
+        Array1.forEach(item => {
+          if (e.name === item.name) { e.count = item.count }
+        })
+        return e
+      })
+    }
+    const newJbject = {...object }
+    console.log(newObject)
+    console.log(newJbject) */
 
 
+    const emptyArray:any = []
+    object[index].forEach(item => {
+      Array1.forEach(e => {
+        if(e.name === item.name){
+          item.count = e.count
+          emptyArray.push({item})
+        }
+      })
+    })
+    
+    console.log(emptyArray)
+  }
   return (
     <>
-      <button onClick={() => addArray(card1)}>Add card1</button>
-      <button onClick={() => addArray(card2)}>Add card2</button>
-      <button onClick={() => console.log(initArray)}>Show array</button>
+      <button onClick={() => changeStart()}>changeStart</button>
 
       <h1>Here</h1>
-      {
-        initArray.map(item =>
-          <p key={item.name}>{item.name}</p>
-        )
-      }
-
     </>
   );
 }
