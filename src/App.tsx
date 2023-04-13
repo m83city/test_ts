@@ -1,19 +1,49 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql, useQuery, } from '@apollo/client';
+import { log } from 'console';
+import { Test } from './Test';
 
 function App() {
-   const inputEl = useRef(null);
-  const onButtonClick = () => {
 
-  };
+  enum QWery {
+    BOT = 'bot',
+    SHOP = 'shop'
+  }
+  const q = {
+    bot: () => console.log(),
+    shop: 2
+  }
 
+  let a = QWery.BOT
+
+  const qqq = q[a]
+  const content = "content"
   return (
     <>
-      <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Фокусуватись на полі вводу</button>
+      <div className='test'> content div</div>
+      <div className='test_another'> content div another</div>
+
+      <div className='input-container'>
+        <input className='input-field' type="text" />
+        <label className='input-label'>Name</label>
+      </div>
+
+      {/*       <div className='input-container'>
+        <input className='input'></input>
+        <span className='placeholder'>{content}</span>
+      </div> */}
+
+      {/* <form>
+        <input  type='text' />
+        <label  placeholder='Type your Email'></label>
+      </form> */}
+
     </>
   );
 }
 
 export default App;
+
+

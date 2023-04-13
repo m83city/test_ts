@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+*{
+  box-sizing: border-box;
+}
 
 .App-logo {
   height: 40vmin;
@@ -11,6 +14,202 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+/*////////////////////////////////////////////*/
+.input-container{
+  position: relative;
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+}
+.input-field{
+  border: 0;
+  border-bottom: 2px solid #caf;
+  outline: none;
+}
+.input-label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+.input-field:focus + .input-label,
+.input-field:valid  + .input-label{
+  transition: all 1s;
+  font-size: 0.75rem;
+  top:-1rem;
+  color:green;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+/*////////////////////////////////////////////*/
+
+
+
+
+
+
+/* html, body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(4em + 1px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background: #fff;
+  resize: none;
+  outline: none;
+}
+
+input[type="text"][required]:focus {
+  border-color: #00bafa;
+}
+input[type="text"][required]:focus + label[placeholder]:before {
+  color: #00bafa;
+}
+input[type="text"][required]:focus + label[placeholder]:before,
+input[type="text"][required]:valid + label[placeholder]:before {
+  transition-duration: .2s;
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+
+input[type="text"][required]:invalid + label[placeholder][alt]:before {
+  content: attr(alt);
+}
+
+input[type="text"][required] + label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1em;
+  margin-top: calc(-3em - 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+
+input[type="text"][required] + label[placeholder]:before {
+  
+  content: attr(placeholder);
+
+  display: inline-block;
+  margin: 0 calc(1em + 2px);
+  padding: 0 2px;
+  color: #898989;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-size: 100% 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+ */
+
+
+
+
+
+
+
+
+
+  /* .input-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 100px;
+    max-width: 700px;
+    display: block;
+    position: relative;
+    border: 1px solid black;
+    height: 40px;
+  }
+  .input{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0px solid transparent;
+  }
+  .placeholder{
+    position: absolute;
+    left: 5rem;
+    top: 1rem;
+    background-color: white;
+  } */
+  /* .input:focus + .placeholder {
+    color: red;
+  } */
+  /* .input-container .input:focus ~ .placeholder{
+    color:red
+  } */
+
+.input:focus + .placeholder {
+  top:-0.5rem;
+  color:red
+}
+
+/* .input-placeholder{
+  position: relative;
+  left: -9.5%;
+} */
+
+/* .inputContainer {
+  width: 200px;
+  display: inline-block;
+  background-color: white;
+  padding: 0;
+}
+.inputContainer::before{
+  content: "Placeholder";
+  position: relative;
+  bottom: -1.6rem;
+  left: 10px;
+  background-color: transparent;
+}
+.inputContainer:focus-within::before{
+  transition: all 0.5s;
+  content: "Placeholder";
+  font-size: .8rem;
+  color: purple;
+  position: relative;
+  bottom: -0.5rem;
+  left: 10px;
+  background-color: white;
+}
+.inputContainer:not(:focus-within)::before{
+  transition: all 0.5s;
+  content: "Placeholder";
+  position: relative;
+  bottom: -1.6rem;
+  left: 10px;
+  background-color: transparent;
+} */
+
+
+.test {
+  background-color: red;
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.test_another {
+  margin-top: 5px;
+  margin: 5px auto;
+  width: 750px;
+  text-align: center;
+  background-color: green;
 }
 
 .App-header {
@@ -32,6 +231,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
