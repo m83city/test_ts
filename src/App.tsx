@@ -1,17 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useRef } from 'react';
+import React, { Component, useEffect, useRef } from 'react';
+import WebViewer from '@pdftron/webviewer';
+import { ComponentDef } from "./ComponentDef"
+
 
 function App() {
-   const inputEl = useRef(null);
-  const onButtonClick = () => {
+  const viewer = useRef<any>(null);
+  // const debug = () => {
+  //   WebViewer(
+  //     {
+  //       path: '/webviewer/lib',
+  //       initialDoc: './sample.pdf',
+  //     },
+  //     viewer.current,
+  //   ).then((instance) => {
+  //     const { documentViewer } = instance.Core;
 
-  };
+  //   });
+  // }
 
   return (
     <>
-      <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Фокусуватись на полі вводу</button>
+      <div className="MyComponent">
+        <ComponentDef />
+      </div>
+
     </>
   );
 }
