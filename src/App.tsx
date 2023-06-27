@@ -1,32 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { Component, useEffect, useRef } from 'react';
+import React, { Component, createContext, useEffect, useRef, useState } from 'react';
 import WebViewer from '@pdftron/webviewer';
-import { ComponentDef } from "./ComponentDef"
+import { LoadDocument } from './LoadDocument';
+import { WebViewerComponent } from './WebViewerComponent';
 
+
+export const WebViewerContext = createContext({});
 
 function App() {
-  const viewer = useRef<any>(null);
-  // const debug = () => {
-  //   WebViewer(
-  //     {
-  //       path: '/webviewer/lib',
-  //       initialDoc: './sample.pdf',
-  //     },
-  //     viewer.current,
-  //   ).then((instance) => {
-  //     const { documentViewer } = instance.Core;
+  const viewer = useRef(null);
+  const searchParam = ".continued from page 1"
+  const [file, setFile] = useState<any>("");
 
-  //   });
-  // }
+  const [instance, setInstance] = useState();
+
+  const debug = () => {
+
+  }
 
   return (
-    <>
-      <div className="MyComponent">
-        <ComponentDef />
-      </div>
+    <WebViewerContext.Provider
+    value={{instance, setInstance}}
+    >
+      <LoadDocument/>
+      <WebViewerComponent/>
 
-    </>
+
+
+
+
+    </WebViewerContext.Provider>
   );
 }
 
