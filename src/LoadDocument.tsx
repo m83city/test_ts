@@ -7,12 +7,12 @@ import { WebViewerInstance } from '@pdftron/webviewer';
 
 export const LoadDocument = () => {
     const instance: WebViewerInstance = useInstance();
-    const searchText = "Yet more text. And more text. And more text. And more text. And more text. And more text. And more text. And more text. Oh, how boring typing this stuff";
+    const searchTex = "And ";
+
     const handlerFile = (file: File) => {
 
         const { documentViewer, Search } = instance.Core
 
-        const mode = Search.Mode.PAGE_STOP | Search.Mode.HIGHLIGHT;
 
         // const searchOptions = {
         //     fullSearch: true,
@@ -36,10 +36,9 @@ export const LoadDocument = () => {
         });
         documentViewer.addEventListener('documentLoaded', () => {
             instance.UI.disableElements(['searchPanel'])
-            instance.UI.searchTextFull(searchText, {
-                wildcard: true  
+            instance.UI.searchTextFull(searchTex, {
+                wildcard: true
             });
-            //instance.UI.closeElements(['searchPanel', 'searchOverlay'])
         })
 
     }
